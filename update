@@ -1,0 +1,3 @@
+echo Updates are found. Now updatingsleep 1update=$(git fetch --allgit reset --hard origin/mastergit pull)clear
+
+

@@ -643,39 +643,42 @@ def super():
     pilih_super()
 
 def pilih_super():
-       peak  = raw_input('\x1b[1;91m-\xe2\x96\xba\x1b[1;97m ')
-       if peak == '': print '\x1b[1;91m[!] Jangan kosong'
-       pilih_super()
-  else:
-      if peak == '1':
-      os.system('clear')
-      print logo
-      print 40 * '\x1b[1;97m\xe2\x95\x90'
-      jalan('\x1b[1;91m[+] \x1b[1;92mMengambil id teman \x1b[1;97m...')
-      r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
-      z = json.loads(r.text) for s in z['data']: id.append(s['id'])
- else:
- if peak == '2':
- os.system('clear')
- print logo
- print 40 * '\x1b[1;97m\xe2\x95\x90'
- idg = raw_input('\x1b[1;91m[+] \x1b[1;92mID Grup \x1b[1;91m:\x1b[1;97m ')
- try:
- r = requests.get('https://graph.facebook.com/group/?id=' + idg + '&access_token=' + toket)
- asw = json.loads(r.text)
- print '\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mNama grup \x1b[1;91m:\x1b[1;97m ' + asw['name']
- except KeyError:
- print '\x1b[1;91m[!] Grup tidak ditemukan'
- raw_input('\n\x1b[1;91m[ \x1b[1;97mKembali \x1b[1;91m]')
- super()
- re = requests.get('https://graph.facebook.com/' + idg + '/members?fields=name,id&limit=999999999&access_token=' + toket)
- s = json.loads(re.text)
- for i in s['data']:
- id.append(i['id'])
- else:	
+    peak  = raw_input('\x1b[1;91m-\xe2\x96\xba\x1b[1;97m ')
+    if peak == '':
+        print '\x1b[1;91m[!] Jangan kosong'
+        pilih_super()
+    else:
+        if peak == '1':
+            os.system('clear')
+            print logo
+            print 40 * '\x1b[1;97m\xe2\x95\x90'
+            jalan('\x1b[1;91m[+] \x1b[1;92mMengambil id teman \x1b[1;97m...')
+            r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
+            z = json.loads(r.text)
+            for s in z['data']: 
+                id.append(s['id'])
+        else:
+            if peak == '2':
+                os.system('clear')
+                print logo
+                print 40 * '\x1b[1;97m\xe2\x95\x90'
+                idg = raw_input('\x1b[1;91m[+] \x1b[1;92mID Grup \x1b[1;91m:\x1b[1;97m ')
+                try:
+                    r = requests.get('https://graph.facebook.com/group/?id=' + idg + '&access_token=' + toket)
+                    asw = json.loads(r.text)
+                    print '\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mNama grup \x1b[1;91m:\x1b[1;97m ' + asw['name']
+                except KeyError:
+                    print '\x1b[1;91m[!] Grup tidak ditemukan'
+                    raw_input('\n\x1b[1;91m[ \x1b[1;97mKembali \x1b[1;91m]')
+                    super()
+                re = requests.get('https://graph.facebook.com/' + idg + '/members?fields=name,id&limit=999999999&access_token=' + toket)
+                s = json.loads(re.text)
+                for i in s['data']:
+                    id.append(i['id'])
+            else:	
 			if peak == '3':
-					os.system('reset')	
-				print logo
+	                 	os.system('reset')	
+				       print logo
 					idt = raw_input('\x1b[1;91m[+] \x1b[1;92mMasukan ID Teman \x1b[1;91m: \x1b[1;97m')
 					try:
 						r = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)

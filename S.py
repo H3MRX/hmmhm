@@ -692,14 +692,14 @@ def pilih_super():
 				r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
 				z = json.loads(r.text)
 				for i in z['data']:
-				    id.append(i['id'])
- 		            else:
+				        id.append(i['id'])
+ 		        else:
 				if peak == '0':
 					menu_hack()
 
-                    else:
-                        print '\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + peak + ' \x1b[1;91mTidak ada'
-                        pilih_super()
+                                else:
+                                        print '\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + peak + ' \x1b[1;91mTidak ada'
+                                        pilih_super()
     print '\x1b[1;91m[+] \x1b[1;92mTotal ID \x1b[1;91m: \x1b[1;97m' + str(len(id))
     jalan('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mPlease wait \x1b[1;97m...')
     titik = ['.   ', '..  ', '... ']
